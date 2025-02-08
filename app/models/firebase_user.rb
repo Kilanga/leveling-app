@@ -1,0 +1,2 @@
+class FirebaseUser < ApplicationRecord
+end

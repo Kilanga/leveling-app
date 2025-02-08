@@ -1,0 +1,34 @@
+<h1>Tableau de Bord</h1>
+<p>Bienvenue, <span id="display-name"></span>!</p>
+<p>Niveau : <span id="user-level"></span></p>
+<p>XP : <span id="user-xp"></span></p>
+<p>XP restant avant le prochain niveau : <span id="xp-to-next-level"></span></p>
+<p>Monnaie : <span id="user-coins"></span></p>
+<button data-controller="dashboard" data-action="click->dashboard#fetchUserData" class="btn btn-success">Actualiser</button>
+
+<h2>Quêtes disponibles</h2>
+<ul id="quest-list"></ul>
+
+<h2>Boutique</h2>
+<ul id="shop-list"></ul>
+<h2>Recharger des coins</h2>
+<form action="/payments" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <button type="submit" class="btn btn-primary">Acheter 100 coins (5€)</button>
+</form>
+
+<h2>Classement des joueurs</h2>
+<ul id="leaderboard-list"></ul>
+
+<h2>Événements spéciaux</h2>
+<ul id="event-list"></ul>
+
+<h2>Progression de Classe</h2>
+<p>Classe actuelle : <span id="current-class"></span></p>
+<button data-controller="classes" data-action="click->classes#upgrade" class="btn btn-success">Évoluer</button>
+
+<h2>Succès Débloqués</h2>
+<ul id="achievement-list"></ul>
+
+<h2>Animations et Effets</h2>
+<ul id="animation-list"></ul>
