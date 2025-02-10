@@ -25,7 +25,7 @@ gem "bootstrap", "~> 5.0"
 gem "webpacker"
 gem "dotenv-rails"
 group :development, :test do
-  gem "rspec-rails", "~> 6.0" # or the latest version
+  gem "rspec-rails", "~> 7.1" # or the latest version
 end
 gem "omniauth-google-oauth2"
 
