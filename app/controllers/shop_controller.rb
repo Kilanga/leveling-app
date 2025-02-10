@@ -1,4 +1,6 @@
 class ShopController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     items = [
       { id: 1, name: "Potion XP", price: 50 },
@@ -8,16 +10,15 @@ class ShopController < ApplicationController
     render json: { items: items }
   end
 
-  def purchase
-    user = FirebaseService.get_user(1)  # Remplace par user connecté
-    item_price = 50  # À récupérer dynamiquement
+  def create
+    item = params[:item_id]
+    price = { "1" => 50, "2" => 100, "3" => 500 }[item]
 
-    if user.data["coins"] >= item_price
-      new_coins = user.data["coins"] - item_price
-      FirebaseService.update_user_coins(user.data["uid"], new_coins)
-      render json: { message: "Achat réussi!", new_coins: new_coins }
+    if current_user.coins >= price
+      current_user.update(coins: current_user.coins - price)
+      render json: { message: "Achat réussi!" }
     else
-      render json: { error: "Fonds insuffisants!" }, status: :unprocessable_entity
+      render json: { error: "Fonds insuffisants" }, status: :unprocessable_entity
     end
   end
 end

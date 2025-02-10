@@ -27,6 +27,8 @@ gem "dotenv-rails"
 group :development, :test do
   gem "rspec-rails", "~> 6.0" # or the latest version
 end
+gem "omniauth-google-oauth2"
+
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"

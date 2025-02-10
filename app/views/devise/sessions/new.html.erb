@@ -1,0 +1,21 @@
+<h2>Bienvenue sur Leveling App</h2>
+<p>Connectez-vous pour commencer votre aventure !</p>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div>
+    <%= f.label :email %><br />
+    <%= f.email_field :email %>
+  </div>
+
+  <div>
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </div>
+
+  <div>
+    <%= f.submit "Se connecter", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<%= link_to "Se connecter avec Google", user_google_oauth2_omniauth_authorize_path, class: "btn btn-danger" %>
+
